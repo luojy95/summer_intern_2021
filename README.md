@@ -317,7 +317,7 @@ ___b. Gaussian Distributed Generator___
 
 The total number of requests = 1,000,000
 
-mean = max_index + min_index / 2
+mean = (max_index + min_index) / 2
 
 standard deviation = mean / 4
 
