@@ -281,7 +281,7 @@ The total number of requests = 1,000,000 from the training set
 
   * In general, LFU policy has the best performance and FIFO policy has the worst performance.
 
-#### 2. Random Generate Dataset #### 
+#### 2. Synthetic Dataset #### 
 
  * Investigate four embedding tables with with |S| = [10,000, 100,000, 1,000,000, 10,000,000]
 
