@@ -235,7 +235,7 @@ Dataset Note
  * Total Number of data: 
   
    * 39291958 training data
-   * xxx testing data
+   * 3273440 testing data
 
 * Training data dimension for each category feature:
   [    1460,      583, 10131227,  2202608,      305,       24,
