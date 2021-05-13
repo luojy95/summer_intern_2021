@@ -11,9 +11,32 @@ Paper Summary
 
 [RecNMP: Accelerating PersonalizedRecommendation with Near-Memory Processing](https://arxiv.org/pdf/1912.12953.pdf)
 
+#### Target: ####
+
+ * Provide a scalable solution to improve system throughput,  supporting abroad range of inference sparse embedding models.
+
+#### Approach: ####
+
+ * Memory-side caching: RankCache to exploit the embedding vectors reuse utilizing the LocalityBit to determine whether an embedding vector should be cached or bypassed.
+ * Table-aware packet scheduling: FR-FCFS, thread-level memory scheduler reserve the temporal locality
+ * Hot entry profiling: Profile the indices of each incoming batch of embedding lookups and set LocalityBit if the vectors are accessed > t times within the batch.
+
 [Compositional Embeddings Using Complementary Partitions for Memory-Efficient Recommendation Systems](https://arxiv.org/pdf/1909.02107.pdf)
 
 [Bandana: Using Non-volatile Memory for Storing Deep Learning Models](https://arxiv.org/pdf/1811.05922.pdf)
+
+#### Target: ####
+ * Reduce the usage of the DRAM by utilizing Non-volatile Memory (NVM) as the primary storage.
+
+#### Approach: ####
+ * Store related vectors together (spatial locality)
+   * Semantic partitioning (use Euclidian space as the indicator of the similarity among vectors), typical method is K-means clustering.
+   * Supervised Partitioning with SHP (use hypergraph): Reorder the embedding table so that the columns accesssed by the same user are likely to be stored in the same block.
+ * Caching the Embedding Tables (temporary locality)
+   * LRU + Cache prefetched vectors
+   * Use shadow cache/queue (only store the indices)
+   * Deal with Rarely Accessed Vectors (add threshold t)
+   * Configure the Cache Parameters with Simulations ([miniature caches](https://www.usenix.org/system/files/conference/atc17/atc17-waldspurger.pdf))
 
 [Batch-Aware Unified Memory Management in GPUsfor Irregular Workloads](https://ramyadhadidi.github.io/files/kim-asplos20.pdf)
 
@@ -26,6 +49,8 @@ Paper Summary
 [Adaptive GPU Cache Bypassing](https://www.computermachines.org/joe/publications/pdfs/gpgpu8_bypassing.pdf)
 
 [Understanding Training Efficiency of DeepLearning Recommendation Models at Scale](https://arxiv.org/pdf/2011.05497.pdf)
+
+[Talus: A Simple Way to Remove Cliffsin Cache Performance](http://class.ece.iastate.edu/tyagi/cpre581/papers/HPCA15Cliffs.pdf)
 
 Useful Blogs
 ------------
