@@ -401,3 +401,5 @@ Potential methods to improve the cache policy
   * Multi queue (MQ)
   * Pannier: Container-based caching algorithm for compound objects
 
+* Improve the cache partition method: like the shadow cache method (only store the indices)
+
