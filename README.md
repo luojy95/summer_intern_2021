@@ -289,6 +289,13 @@ Dataset Note
            2173,        4,  7046547,       18,       15,   286181,
             105,   142572]
 
+**Statistics**:
+
+ * Here the summary of vector access statistics:
+![](./figs/access/summary.png)
+
+For detailed information of each embedding table vector access pattern, please find in 'figs/access'
+
 **Note**: 
 
   * Each categorical feature has one embedding table, in order to fully utilize the embedding table, the |S| of each embdding table is set to the same as the category dimension.
