@@ -292,6 +292,7 @@ Dataset Note
 **Statistics**:
 
  * Here the summary of vector access statistics:
+  
 ![](./figs/access/summary.png)
 
 For detailed information of each embedding table vector access pattern, please find in 'figs/access'
