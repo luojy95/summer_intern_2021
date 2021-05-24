@@ -1,4 +1,4 @@
-Week 2
+Week 3
 ============
 
 ### Weekly Log for Summer 2021 Internship at Facebook ###
@@ -7,7 +7,25 @@ Paper Summary
 ------------
 [Deep Learning Recommendation Model forPersonalization and Recommendation Systems](https://arxiv.org/pdf/1906.00091.pdf)
 
+#### Target ####
+
+ * Introduce the state-of-the-art deep laerning recommendation model (DLRM) and provide its implementation in both PyTorch and Caffe2 frameworks..
+
 [The Architectural Implications of Facebook’sDNN-based Personalized Recommendation](https://arxiv.org/pdf/1906.03109.pdf)
+
+#### Note ####
+ * Mainly for inference
+ * RMC3 has the largest embedding tables in terms of the input dimensions
+ * Assuming 32-bit floating point datatypes, the storage capacity of embedding tables varies between 100MB, 10GB and 1GB for RMC1, RMC2 and RMC3
+ * RMC1 and RMC2 models perform more irregular memory accesses leading to higher cache miss rates
+ * The abstracted informatino for three DLRM models:
+![Model Architecture](DLRM_config.png)
+
+#### Contribution ####
+
+ * Quantitative metrics to evaluate the performance:
+   * Latency
+   * Latency-bounded throughput at given service level agreement (SLA) requirements
 
 [RecNMP: Accelerating PersonalizedRecommendation with Near-Memory Processing](https://arxiv.org/pdf/1912.12953.pdf)
 
@@ -51,6 +69,8 @@ Paper Summary
 [Understanding Training Efficiency of DeepLearning Recommendation Models at Scale](https://arxiv.org/pdf/2011.05497.pdf)
 
 [Talus: A Simple Way to Remove Cliffsin Cache Performance](http://class.ece.iastate.edu/tyagi/cpre581/papers/HPCA15Cliffs.pdf)
+
+[Distributed Hierarchical GPU Parameter Server for Massive Scale Deep Learning Ads Systems](https://arxiv.org/pdf/2003.05622.pdf)
 
 Useful Blogs
 ------------
@@ -386,7 +406,7 @@ Potential methods to improve the cache policy
   * Last in first out (LIFO) or First in last out (FILO)
   * Least recently used (LRU): Tested
   * Time aware least recently used (TLRU)
-  * Most recently used (MRU)
+  * Most recently used (MRU)c
   * Pseudo-LRU (PLRU)
   * Random replacement (RR)
   * Segmented LRU (SLRU)
@@ -402,4 +422,54 @@ Potential methods to improve the cache policy
   * Pannier: Container-based caching algorithm for compound objects
 
 * Improve the cache partition method: like the shadow cache method (only store the indices)
+
+Suggestion:
+
+* Interview-like:
+  * Productivity
+  * Quality of the work (one or two points)
+    * Code quality
+    * Effective
+  * Communication & Collaboration
+    * Others can understand my point
+  * Learning Speed
+  * Independency
+    * Root cost
+    * Approach makes sense (effective):
+      * Investigate
+
+* Indentify and prepare
+  * How to determine/model the system performance
+    * System hit rate
+    * Batch-level, every batch should we lookup the DRAM memory
+  * Fixed total cache size, how to optimally allocate cache size to each table.
+  * Paper different flowcharts, applicable or not
+  * Link everything together
+    * Narrow down and get rid of some redudent works
+  * Metric
+  * Special Condition (any table miss rates)
+
+* PyTorch
+* cuda kernel
+* Python
+* Run Job
+
+
+* Peer Engineer
+  * Dif 没有 land
+
+* Characteristic
+  * Metric
+  * Frequency for accessing different tables
+  * Same table, given a batch, different table look up times
+  * Same table, different vectors look up frequency
+  * Comparison between the production level and the public
+
+table 之间
+same table look up 分布，是不是很hot，
+pooling， embeddingbag，pooling factor，reduce了多少
+other metric for embedding table 
+
+cache时限，很hot，可能一段时间之后就不hot了
+
 
